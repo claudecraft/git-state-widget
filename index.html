@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git State</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+  <body>
+    <div id="panel" class="panel">
+      <header class="head" data-tauri-drag-region>
+        <div class="titles" data-tauri-drag-region>
+          <div class="kicker" data-tauri-drag-region>GIT STATE</div>
+          <div id="headline" class="headline" data-tauri-drag-region>Scanning…</div>
+          <div id="stamp" class="stamp" data-tauri-drag-region>not scanned yet</div>
+        </div>
+        <div class="buttons">
+          <button id="refresh" class="hbtn" title="Refresh now">&#8635;</button>
+          <button id="hide" class="hbtn" title="Hide (Esc). Tray icon brings it back">&#10005;</button>
+        </div>
+      </header>
+      <main id="body"></main>
+      <footer class="foot">Red is work that exists in one place only. Dirty trees and merged branches are informational.</footer>
+    </div>
+  </body>
+</html>
