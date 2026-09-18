@@ -47,7 +47,21 @@ npm run tauri build               # also produces an NSIS installer in target/re
 npm run tauri dev                 # live-reload development
 ```
 
-Nothing needs elevation. "Start with Windows" in the tray menu writes a per-user Run key.
+Nothing needs elevation. "Start with Windows" in the tray menu writes a per-user Run key
+("Start at login" on macOS, a LaunchAgent).
+
+### Releases
+
+Pushing a `v*` tag runs `.github/workflows/release.yml`, which builds the Windows NSIS
+installer and macOS `.dmg` files for Apple silicon and Intel, and attaches them to a **draft**
+release for review:
+
+```powershell
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+The macOS builds are unsigned; right-click → Open on first launch.
 
 ## Configure
 

@@ -25,7 +25,8 @@ pub fn build(app: &AppHandle) -> tauri::Result<()> {
     let reload = MenuItem::with_id(app, "reload", "Reload config", true, None::<&str>)?;
     let fetch = CheckMenuItem::with_id(app, "fetch", "Fetch before each scan", true, cfg.fetch, None::<&str>)?;
     let on_top = CheckMenuItem::with_id(app, "ontop", "Always on top", true, cfg.always_on_top, None::<&str>)?;
-    let startup = CheckMenuItem::with_id(app, "startup", "Start with Windows", true, autostart, None::<&str>)?;
+    let startup_label = if cfg!(target_os = "macos") { "Start at login" } else { "Start with Windows" };
+    let startup = CheckMenuItem::with_id(app, "startup", startup_label, true, autostart, None::<&str>)?;
     let exit = MenuItem::with_id(app, "exit", "Exit", true, None::<&str>)?;
 
     let menu = Menu::with_items(app, &[
